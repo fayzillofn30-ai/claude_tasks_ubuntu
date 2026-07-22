@@ -1,0 +1,7 @@
+remote: 
+remote: Create a pull request for 'dev' on GitHub by visiting:        
+remote:      https://github.com/fayzillofn30-ai/low-resume/pull/new/dev        
+remote: 
+To https://github.com/fayzillofn30-ai/high-edfix_clone.git
+ ! [remote rejected] HEAD -> main (refusing to allow an OAuth App to create or update workflow `.github/workflows/deploy.yml` without `workflow` scope)
+error: failed to push some refs to 'https://github.com/fayzillofn30-ai/high-edfix_clone.git'
