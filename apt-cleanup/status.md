@@ -79,6 +79,17 @@ o'zi ko'chirib oladi): eski yadro `rc` paketlari, nginx/rabbitmq/redis/
 cloudflare-warp/docker-ce paketlari, `apt autoremove`, `apt-get clean`,
 snap eski revizyalar.
 
+## Bajarilgan qism (2026-07-27, foydalanuvchi tomonidan, `owner_task.md`dan)
+- [x] **1-qadam** — 27 ta eski yadro `rc` paketi purge qilindi. Bonus:
+  chiqishda `linux-*-6.17.0-35-generic` endi "avtomatik o'rnatilgan, kerak
+  emas" deb belgilandi (joriy yadro `7.0.0-28`, zaxira `6.17.0-40` yetarli) —
+  3-qadam (`apt autoremove`)da avtomatik tozalanadi.
+- [ ] 2-qadam — nginx/rabbitmq/redis/cloudflare-warp/docker-ce purge.
+- [ ] 3-qadam — apt autoremove.
+- [ ] 4-qadam — apt-get clean.
+- [ ] 5-qadam — snap eski revizyalar.
+
 ## Holat
-⏳ **QISMAN BAJARILDI** — Docker (cache/volume/image) tozalandi. Qolgan
-komandalar `owner_task.md`da, foydalanuvchi ishga tushirishini kutmoqda.
+⏳ **QISMAN BAJARILDI** — Docker (cache/volume/image) + 1-qadam (eski yadrolar)
+tozalandi. Qolgan 4 qadam `owner_task.md`da, foydalanuvchi birma-bir
+ishga tushirmoqda.
