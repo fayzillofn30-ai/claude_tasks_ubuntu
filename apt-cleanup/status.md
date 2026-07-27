@@ -84,12 +84,17 @@ snap eski revizyalar.
   chiqishda `linux-*-6.17.0-35-generic` endi "avtomatik o'rnatilgan, kerak
   emas" deb belgilandi (joriy yadro `7.0.0-28`, zaxira `6.17.0-40` yetarli) —
   3-qadam (`apt autoremove`)da avtomatik tozalanadi.
-- [ ] 2-qadam — nginx/rabbitmq/redis/cloudflare-warp/docker-ce purge.
-- [ ] 3-qadam — apt autoremove.
-- [ ] 4-qadam — apt-get clean.
-- [ ] 5-qadam — snap eski revizyalar.
+- [x] 2-qadam — nginx/rabbitmq/redis/cloudflare-warp/docker-ce purge qilindi
+  (foydalanuvchi tomonidan ishga tushirilgan, tarmoq uzilishi sabab terminal
+  qotib qolgan edi, lekin buyruq o'zi muvaffaqiyatli tugagan ekan — tekshirilib
+  tasdiqlandi: barcha paketlar o'rnatilmagan holatda).
+- [x] 3-qadam — apt autoremove. Tekshirildi: "0 to remove" (avtomatik
+  o'chirilishi kerak bo'lgan hech narsa qolmagan).
+- [x] 4-qadam — apt-get clean. Tekshirildi: kesh 689MB dan 68K gacha tushgan.
+- [x] 5-qadam — snap eski revizyalar o'chirildi (core20/22/24, cups,
+  firmware-updater, gnome-42-2204, gnome-46-2404, mesa-2404, snap-store,
+  snapd, snapd-desktop-integration, telegram-desktop).
 
 ## Holat
-⏳ **QISMAN BAJARILDI** — Docker (cache/volume/image) + 1-qadam (eski yadrolar)
-tozalandi. Qolgan 4 qadam `owner_task.md`da, foydalanuvchi birma-bir
-ishga tushirmoqda.
+✅ **YOPILDI** — barcha 5 qadam + Docker (cache/volume/image) tozalandi.
+Disk: 92GB'dan 46GB band, 42GB bo'sh (53% band, boshida 68% band edi).
