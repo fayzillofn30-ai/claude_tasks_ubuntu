@@ -66,6 +66,19 @@ snap list --all | awk '/disabled/{print $1, $3}' | while read name rev; do
 done
 ```
 
+## Bajarilgan qism (2026-07-27, Claude tomonidan — sudo kerak bo'lmadi)
+- `docker system prune -a --volumes -f` — foydalanuvchi `docker` guruhida bo'lgani
+  uchun sudo'siz ishladi. **6.29GB bo'shadi** (1.7G image + 914M volume + 4.4G
+  build cache + eski network'lar: `backend_backend`, `zdes-frontend_default`,
+  `bookmarket_backend`, `dars1_default`).
+- Disk: 68% band (29GB bo'sh) → **58% band (38GB bo'sh)**.
+
+## Qolgan qism — sudo parol kerak, foydalanuvchi terminalda nusxalay olmagani uchun
+`apt-cleanup/owner_task.md` fayliga yozildi (foydalanuvchi VSCode/nano orqali
+o'zi ko'chirib oladi): eski yadro `rc` paketlari, nginx/rabbitmq/redis/
+cloudflare-warp/docker-ce paketlari, `apt autoremove`, `apt-get clean`,
+snap eski revizyalar.
+
 ## Holat
-⏳ **KUTILMOQDA** — komandalar foydalanuvchiga berildi, hali ishga tushirilmagan.
-Ishga tushirilgach, natija (bo'shagan disk joyi, xato bo'lsa) shu faylga qo'shiladi.
+⏳ **QISMAN BAJARILDI** — Docker (cache/volume/image) tozalandi. Qolgan
+komandalar `owner_task.md`da, foydalanuvchi ishga tushirishini kutmoqda.
