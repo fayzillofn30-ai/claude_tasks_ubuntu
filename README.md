@@ -32,6 +32,7 @@ NVMe 477 GB dual boot (Windows ~382 GB / Ubuntu ~94 GB) · Ubuntu 24.04, kernel 
 | `file-grouping/` | Media saralash, `.deb` tozalash | ✅ |
 | `performance-debug/` | Tizim qotishi diagnostikasi | ✅ yopildi |
 | `vscode-setup/` | VSCode mentorlik uchun sozlash | ✅ |
+| `apt-cleanup/` | APT/Docker/Snap keraksiz paketlarni tozalash | ⏳ kutilmoqda |
 
 ## Xulosa (2026-07-22)
 

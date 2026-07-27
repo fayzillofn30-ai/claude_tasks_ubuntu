@@ -31,6 +31,8 @@ batafsil ma'lumot uchun, lekin umumiy holat shu yerda.
 
 11. **[DONE] VSCode mentorlik uchun sozlandi (2026-07-22)** — terminal papkasi (`~/.bashrc` dagi shartsiz `cd ~/Desktop` shartli qilindi), Code Runner terminalda ishlashi (`runInTerminal` xato joyda — `executorMap` ichida turgan edi), klaviatura yorliqlari (GNOME `Ctrl+Alt+↑/↓` va `Ctrl+Shift+Alt+↑/↓` ni o'g'irlaydi — VSCode bo'sh kombinatsiyalarga bog'landi), kodni blokka o'rash uchun 33 ta snippet. Batafsil: `../vscode-setup/status.md`.
 
+12. **[KUTILMOQDA 2026-07-27] APT/Docker/Snap tozalash** — disk 68% band (29GB bo'sh). 81 ta qo'lda o'rnatilgan paket tahlil qilindi, foydalanuvchi bilan kelishildi: nginx, rabbitmq-server, redis, cloudflare-warp, docker (qayta o'rnatiladi) o'chiriladi + 27 ta eski yadro qoldig'i + apt cache (689MB) + docker prune (~7GB) + snap eski revizyalar tozalanadi. `mysql-server`, `postgresql`, `libreoffice`, `code`, `nodejs`, fonts, npm globallar SAQLANADI. Sudo komandalar foydalanuvchiga berildi, hali ishga tushirilmagan. Batafsil: `../apt-cleanup/status.md`.
+
 ## Umumiy bo'shatilgan disk joyi (2026-07-21)
 - `.deb`/`.deb.part` tozalash: 301 MB
 - `overview/CRM` o'chirish: 1.6 GB
