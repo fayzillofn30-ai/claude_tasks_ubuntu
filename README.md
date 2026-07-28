@@ -33,6 +33,8 @@ NVMe 477 GB dual boot (Windows ~382 GB / Ubuntu ~94 GB) · Ubuntu 24.04, kernel 
 | `performance-debug/` | Tizim qotishi diagnostikasi | ✅ yopildi |
 | `vscode-setup/` | VSCode mentorlik uchun sozlash | ✅ |
 | `apt-cleanup/` | APT/Docker/Snap keraksiz paketlarni tozalash | ⏳ kutilmoqda |
+| `encryption_plan.md` | Gmail/Password shifrlash rejasi (C tilida, boshlang'ich g'oya) | ✅ reja tayyor |
+| `secvault-plan/` | SecVault (Python/Termux) — qaror tarixi. Kodning o'zi alohida repo: `~/Desktop/secvault` → `github.com/fayzillo95/secvault` | ✅ push qilindi |
 
 ## Xulosa (2026-07-22)
 
