@@ -37,19 +37,58 @@ va reja tarixi yozib boriladi.
    ulangani esdan chiqqani sababli chalkashlik yuzaga kelgan — loyiha
    `~/Desktop/secvault`ga mustaqil papka sifatida ko'chirildi va o'z
    GitHub repo'siga (`fayzillo95/secvault`, SSH orqali) ulandi.
+9. Seed/parol kiritishda `getpass` (yashirin kiritish) olib tashlandi —
+   foydalanuvchi terayotganda ko'rmasa, xato terganini bilolmasligi
+   muammo bo'lgan.
+10. Git tarixi tekshirilganda (`git log`) email/username commit xabarida
+    ochiq chiqib qolgani aniqlandi (`mask_email` faqat `@` bor stringlarni
+    maskalaydi) — bu sabab bilan ham, ham "push xato bersa tizim
+    chalkashadi" muammosi sababli, **avtomatik push butunlay olib
+    tashlandi**. Endi `add/edit/delete` faqat lokal faylni yangilaydi,
+    GitHub'ga yuborish alohida, qo'lda tanlanadigan menyu bandi
+    ("8. Push") orqali, umumiy `"update: <sana>"` xabari bilan bajariladi
+    (email endi commit xabariga yozilmaydi).
+11. `pass` (Unix Password Store) kabi tayyor yechimlar bor-yo'qligi
+    so'ralib tekshirildi — mavjudligi tasdiqlandi (GPG + git + Android
+    ilova), lekin foydalanuvchi ataylab o'z, moslashtirilgan tizimida
+    qolishga qaror qildi (sabab: faqat git+terminal+python kifoya, hamma
+    joyda tez ishga tushadi).
+12. To'liq listni ochiq (shifrlanmagan) `result.json`ga eksport qilish
+    qo'shildi (9-band) — TTL bilan (2 daqiqadan keyin avtomatik o'chadi)
+    va dasturdan chiqishda (`0` yoki `Ctrl+C`) ham darhol o'chiriladi;
+    `.gitignore`ga qo'shilgan, GitHub'ga hech qachon tushmaydi.
+13. `Ctrl+C` bosilganda xunuk traceback chiqayotgani aniqlandi — butun
+    `main()` tsikli `try/except KeyboardInterrupt/finally` bilan o'raldi,
+    endi toza "Bekor qilindi. Xayr!" xabari chiqadi va `result.json`
+    tozalanadi.
+14. Quvvat/jarayon kutilmaganda o'chib qolishidan himoya qo'shildi:
+    - **Atomic yozish** — barcha fayllar avval `.tmp`ga yoziladi, so'ng
+      `os.replace` bilan bir zumda almashtiriladi, shuning uchun yozish
+      paytida uzilib qolsa ham asl fayl buzilmaydi.
+    - **`current_step_status.json`** (lokal, git'ga tushmaydi) — har bir
+      `init/add/edit/delete` boshida yozilib, tugagach o'chiriladi;
+      dastur o'rtada to'xtab qolsa, keyingi ishga tushirishda "oxirgi
+      safar X amali tugallanmasdan to'xtagan" deb ogohlantiradi.
 
-## Texnik arxitektura (qisqacha)
+## Texnik arxitektura (joriy holat)
 
 - Shifrlash: `cryptography.fernet.Fernet` (AES asosida), kalit PBKDF2HMAC
   (SHA256, 390000 iteratsiya) orqali Seed/tiklash-javobidan hosil qilinadi.
 - Fayllar: `vault.meta.json` (wrap qilingan DEK + tiklash savoli, parolsiz),
-  `accounts.enc` (shifrlangan JSON-lug'at) — ikkalasi ham git'ga tushadi.
-- Har bir `add/edit/delete`dan keyin avtomatik `git add + commit + push`.
+  `accounts.enc` (shifrlangan JSON-lug'at) — ikkalasi ham git'ga tushadi va
+  faqat qo'lda (8-band) push qilinadi.
+- `result.json` (ochiq, TTL=2 daqiqa) va `current_step_status.json` (holat
+  kuzatuvi) — ikkalasi ham lokal, `.gitignore`da, git'ga tushmaydi.
 
 ## Holat
 
 ✅ Kod yozildi, funksional test qilindi (add/edit/delete/list — barcha
-rejimlar, seed bilan qayta ochish) — scratchpadda muvaffaqiyatli o'tdi.
-✅ `~/Desktop/secvault` sifatida GitHub'ga push qilindi (ilk commit +
-`.gitignore`).
-⏳ Termux'da haqiqiy sinovdan o'tkazish hali qilinmagan.
+rejimlar, seed bilan qayta ochish, eksport+TTL, Ctrl+C, atomic-write
+himoyasi) — scratchpadda muvaffaqiyatli o'tdi.
+✅ `~/Desktop/secvault` → `github.com/fayzillo95/secvault`ga muntazam push
+qilib borilmoqda, README to'liq hujjatlashtirilgan.
+✅ Foydalanuvchi real muhitda ham sinab ko'rgan (o'zi qo'shgan/o'chirgan
+test akkaunt git tarixida ko'ringan).
+⏳ Termux'da (Android) haqiqiy sinovdan o'tkazish hali qilinmagan.
+⏳ Kelajakda: til-agnostik vault format (boshqa tillarda ham decode qilish
+imkoni) — [[project_secvault]] xotirasida qayd etilgan.
