@@ -1,0 +1,382 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MENTOR
+  ASSISTANT
+  STUDENT
+}
+
+enum Action {
+  GET
+  POST
+  PUT
+  PATCH
+  DELETE
+}
+
+enum CourseLevel {
+  BEGINNER
+  PRE_INTERMEDIATE
+  INTERMEDIATE
+  UPPER_INTERMEDIATE
+  ADVANCED
+}
+
+enum PaidVia {
+  PAYME
+  CLICK
+  CASH
+}
+
+enum HomeworkSubStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum ExamAnswer {
+  A
+  B
+  C
+  D
+}
+
+model User {
+  id                 String               @id @default(auto()) @map("_id") @db.ObjectId
+  fullName           String?
+  password           String 
+  phoneNumber        String    @unique()
+  image              String?
+  role               Role                 @default(STUDENT)
+  mentorProfile      MentorProfile?
+  assignedCourses    AssignedCourse[]
+  PurcachedCourse    PurcachedCourse[]
+  Rating             Rating[]
+  LastActivity       LastActivity[]
+  LessonView         LessonView[]
+  HomeworkSubmission HomeworkSubmission[]
+  ExamResult         ExamResult[]
+  Question           Question[]
+  QuestionAnswer     QuestionAnswer[]
+  Permission Permission[]
+
+  updatedAt  DateTime     @default(now())
+  createdAt  DateTime     @default(now())
+
+  @@map("users")
+}
+
+model Permission {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  model   String
+  actions Action[]
+
+  userId  String   @db.ObjectId
+  user    User     @relation(fields: [userId], references: [id])
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("permissions")
+}
+
+
+model MentorProfile {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  about      String?
+  job        String?
+  experience Int?
+
+  telegram  String?
+  instagram String?
+  linkedin  String?
+  facebook  String?
+  github    String?
+  website   String?
+
+  userId  String   @unique @db.ObjectId
+  user    User     @relation(fields: [userId], references: [id])
+  courses Course[]
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("mentor_profiles")
+}
+
+model CourseCategory {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+
+  courses Course[]
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("course_categories")
+}
+
+model Course {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+
+  about      String
+  price      Float?      @db.Double
+  banner     String?
+  introVideo String?
+  level      CourseLevel
+
+  published Boolean @default(false)
+
+  categoryId String         @db.ObjectId
+  category   CourseCategory @relation(fields: [categoryId], references: [id])
+
+  mentorId String        @db.ObjectId
+  mentor   MentorProfile @relation(fields: [mentorId], references: [id])
+
+  assignedCourses AssignedCourse[]
+  PurcachedCourse PurcachedCourse[]
+  Rating          Rating[]
+  LastActivity    LastActivity[]
+  LessonModul     LessonModul[]
+  Question        Question[]
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("courses")
+}
+
+model AssignedCourse {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  courseId String @db.ObjectId
+  courses  Course @relation(fields: [courseId], references: [id])
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("assisgned_courses")
+}
+
+model PurcachedCourse {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  courseId    String   @db.ObjectId
+  courses     Course   @relation(fields: [courseId], references: [id])
+  amount      Float    @db.Double
+  paidVia     PaidVia
+  purcachedAt DateTime @default(now())
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("purcached_courses")
+}
+
+model Rating {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  rate    Float  @db.Double
+  comment String
+  userId  String @db.ObjectId
+  user    User   @relation(fields: [userId], references: [id])
+
+  courseId String @db.ObjectId
+  courses  Course @relation(fields: [courseId], references: [id])
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("rating")
+}
+
+model LastActivity {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  courseId String @db.ObjectId
+  courses  Course @relation(fields: [courseId], references: [id])
+
+  lessonModulId String      @db.ObjectId
+  lessonModule  LessonModul @relation(fields: [lessonModulId], references: [id])
+
+  lessonId String @db.ObjectId
+  lesson   Lesson @relation(fields: [lessonId], references: [id])
+
+  url String
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("last_activitiy")
+}
+
+model LessonModul {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  courseId String @db.ObjectId
+
+  Lesson       Lesson[]
+  Exam         Exam[]
+  ExamResult   ExamResult[]
+  LastActivity LastActivity[]
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  Course Course @relation(fields: [courseId], references: [id])
+}
+
+model Lesson {
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  about String
+  video String?
+
+  lessonModulId String      @db.ObjectId
+  module        LessonModul @relation(fields: [lessonModulId], references: [id])
+
+  LessonView   LessonView[]
+  Homework     Homework[]
+  LastActivity LastActivity[]
+  LessonFile   LessonFile[]
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("lessons")
+}
+
+model LessonView {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  lessonId String @db.ObjectId
+  lesson   Lesson @relation(fields: [lessonId], references: [id])
+
+  view      Boolean
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@map("lesson_views")
+}
+
+model LessonFile {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  file     String?
+  note     String
+  lessonId String  @db.ObjectId
+  lesson   Lesson  @relation(fields: [lessonId], references: [id])
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model Homework {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  task     String
+  file     String?
+  lessonId String  @db.ObjectId
+  lesson   Lesson  @relation(fields: [lessonId], references: [id])
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  HomeworkSubmission HomeworkSubmission[]
+}
+
+model HomeworkSubmission {
+  id     String            @id @default(auto()) @map("_id") @db.ObjectId
+  text   String
+  file   String?
+  reason String
+  status HomeworkSubStatus @default(PENDING)
+
+  homeworkId String   @db.ObjectId
+  homeWork   Homework @relation(fields: [homeworkId], references: [id])
+
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model Exam {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  question String
+  variantA String
+  variantB String
+  variantC String
+  variantD String
+  answer   ExamAnswer
+
+  lessonModulId String      @db.ObjectId
+  lessonModule  LessonModul @relation(fields: [lessonModulId], references: [id])
+  updatedAt     DateTime    @default(now())
+  createdAt     DateTime    @default(now())
+}
+
+model ExamResult {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  lessonModulId String      @db.ObjectId
+  lessonModule  LessonModul @relation(fields: [lessonModulId], references: [id])
+
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  passed    Boolean
+  corrects  Int
+  wrongs    Int
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model Question {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  courseId String @db.ObjectId
+  course   Course @relation(fields: [courseId], references: [id])
+
+  text           String
+  file           String?
+  read           Boolean
+  readAt         DateTime
+  updatedAt      DateTime         @default(now())
+  createdAt      DateTime         @default(now())
+  QuestionAnswer QuestionAnswer[]
+}
+
+model QuestionAnswer {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
+  questionId String   @db.ObjectId
+  question   Question @relation(fields: [questionId], references: [id])
+
+  text      String
+  file      String?
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+}

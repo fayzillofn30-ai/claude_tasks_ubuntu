@@ -1,0 +1,17 @@
+# Orcestor uchun ALOHIDA MySQL konteyner — loyihaning asosiy ilova bazasi bilan HECH QANDAY aloqasi yo'q.
+# Konteynerning user/password'i faqat shu konteyner ichida amal qiladi — asosiy (ilova) DB'ga hech qanday ta'siri yo'q.
+# Bootstrap paytida orcestor.config.env dagi MYSQL_* qiymatlari shu faylga qo'llaniladi.
+services:
+  orcestor-db:
+    image: mysql:8.4
+    container_name: ${MYSQL_CONTAINER_NAME}
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ${MYSQL_VOLUME_PATH}:/var/lib/mysql

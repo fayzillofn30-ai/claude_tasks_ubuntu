@@ -1,0 +1,16 @@
+# Orcestor uchun ALOHIDA Postgres konteyner — loyihaning asosiy ilova bazasi bilan HECH QANDAY aloqasi yo'q.
+# Bootstrap paytida orcestor.config.env dagi POSTGRES_* qiymatlari shu faylga qo'llaniladi (yoki shu faylni
+# nusxalab, quyidagi ${VAR} larni orcestor.config.env qiymatlari bilan qo'lda/skript orqali almashtiring).
+services:
+  orcestor-db:
+    image: postgres:16-alpine
+    container_name: ${POSTGRES_CONTAINER_NAME}
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - ${POSTGRES_VOLUME_PATH}:/var/lib/postgresql/data

@@ -1,0 +1,38 @@
+Sen repo_analiz loyihasida ishlayapsan. Ish papkasi: /home/fayzillo/Desktop/testing/claude_tasks/repo_analiz/
+
+0-QADAM (MAJBURIY, tahlildan oldin — klon xatosini tekshirish):
+Ba'zi `repos/*` loyihalari GitHub'dan klonlanganda chala/buzilgan holda qolgan — fayl-papka tuzilmasi bor, lekin fayllar 0 baytli (bo'sh). Tahlilni boshlashdan oldin buni tekshir:
+1. `repos/__PROJECT__/` ichidagi asosiy source fayllardan bir nechtasini (masalan eng katta fayl yoki `src/` ichidagilar) ko'r — agar ular 0 baytli bo'lsa, bu klon xatosi belgisi.
+2. Buni tasdiqlash uchun `cd repos/__PROJECT__ && git log --oneline -5` va `git log -1 --stat` ishlat — agar "bad object" yoki "unknown revision"/HEAD topilmasa yoki fayllar statda 0 bayt ko'rsatilsa, klon buzilgan.
+3. Klon buzilgan bo'lsa: `repos/__PROJECT__/.git/config`dagi `url = ...`ni o'qi, keyin loyiha papkasini `repos/__PROJECT__.broken_<vaqt>` nomiga ko'chir (o'chirma!) va o'sha URL'dan `git clone <url> repos/__PROJECT__` orqali qayta klon qil.
+4. Qayta klondan keyin fayllar haqiqatan mazmunli (0 baytdan katta) ekanini tekshir va shundan keyingina pastdagi tahlilni boshla.
+5. Agar qayta klon ham muvaffaqiyatsiz bo'lsa (tarmoq yo'q, repo topilmadi va h.k.), tahlilni to'xtat va natija faylida faqat shuni yoz: "## OGOHLANTIRISH: `__PROJECT__` repo klon xatosi tuzatilmadi — tahlil bajarilmadi. Sabab: <aniq xato>." — bunday holda status.md dagi __TASK_ID__ qatorini "✅ Bajarildi" emas, "⚠️ Klon xatosi" deb belgila va pastdagi 3-11 qadamlarni bajarma.
+
+VAZIFA: /home/fayzillo/Desktop/testing/claude_tasks/repo_analiz/repos/__PROJECT__/ papkasidagi loyihani TO'LIQ, fayl-fayl bo'yicha chuqur tahlil qil.
+
+MUHIM CHEKLOV: Bu ishni avvalgi (shu loyihada allaqachon mavjud) tahlildan FARQLI qil. Avvalgi tahlil har loyihada faqat 1 ta faylni ko'rib, umumiy/takrorlanuvchi framework patternlarini (masalan initGlobalApp, standart middleware ulash, oddiy CRUD) qayd etgan edi — bular allaqachon /home/fayzillo/Desktop/testing/claude_tasks/repo_analiz/reports_agy/principles.md faylida hujjatlashtirilgan. SEN ULARNI QAYTARMA.
+
+Sen faqat dasturchi (Fayzillo)ning NOODATIY, CUSTOM, standart bo'lmagan yechimlarini, algoritmlarini va o'ziga xos biznes mantiqlarini qidirasan — ya'ni boshqa o'quvchi/frameworkning odatiy yo'lidan (boilerplate, andozaviy CRUD, kutubxonaning standart usuli) chetga chiqqan joylarni.
+
+QOIDALAR:
+1. node_modules, .git, dist, build, vendor, package-lock.json, va rasm/font fayllarni o'tkazib yubor.
+2. Loyihadagi BARCHA qolgan source fayllarni (controller, service, model/schema, util, middleware, config, custom script, HTML/CSS/JS/C/frontend komponent - qaysi til bo'lishidan qat'iy nazar) birma-bir o'q.
+3. Har bir topilgan noodatiy yechim uchun quyidagi formatda yoz:
+   #### FACT
+   - Fayl: `nisbiy/yo'l/fayl.ext` (qator raqami bilan)
+   - Kod parchasi (qisqa, faqat muhim qismi)
+   #### OBSERVATION
+   - Bu yerda nima qilinayotgani (mexanizm)
+   #### NEGA ODATIY EMAS
+   - Bu nima uchun standart/boilerplate yechim emas — muqobil (odatiy) yondashuv nima bo'lardi va bu nimasi bilan farq qiladi.
+4. Agar biror fayl to'liq boilerplate/andozaviy bo'lsa (masalan bo'sh CRUD, standart routing), uni ATLAB O'T — faqat DIQQATGA SAZOVOR narsalarni yoz. Miqdor emas, sifat va haqiqiylik muhim.
+5. Hech qanday narsani o'ylab topma (no hallucination) — faqat haqiqatda o'qigan kodingga asoslan, aniq fayl va qator ko'rsat.
+6. Hujjatni yozib bo'lgach, uni oxirigacha qayta o'qib chiq va matnda mazmunsiz/tasodifiy so'z yoki uzilib qolgan jumlalar (masalan noto'g'ri joyga tushib qolgan so'z) bor-yo'qligini tekshir, topilsa darhol tuzat. Grammatik va mazmuniy aniqlik muhim.
+
+NATIJA:
+- Natijani /home/fayzillo/Desktop/testing/claude_tasks/repo_analiz/reports_agy/__REPORT_FILE__ fayliga yoz (o'zbek tilida, markdown, yuqoridagi format asosida).
+- Hujjat boshida sarlavha + sana (2026-08-03) + qamrab olingan fayllar soni yoz.
+- Hujjat oxirida qisqa xulosa yoz: nechta noodatiy yechim topilgani, va eng diqqatga sazovor 3 tasi qaysi ekani.
+- Hujjatni yozib bo'lgach, /home/fayzillo/Desktop/testing/claude_tasks/repo_analiz/orcestor/status.md faylini o'qi va undagi "__TASK_ID__" qatoridagi "⏳ Navbatda" holatini "✅ Bajarildi" ga o'zgartir (Edit orqali, boshqa hech narsani o'zgartirmasdan). Shu faylning "ORKESTRATSIYA LOGI" bo'limiga bitta yangi qator qo'sh: "- [x] **[2026-08-03 <hozirgi_vaqt>]** `__TASK_ID__` (`__PROJECT__`) fulldeep tahlil qilindi, N ta noodatiy yechim topildi."
+
+Faqat shu ikkita faylni yoz/o'zgartir (report fayli + status.md). Boshqa hech qanday faylga tegma, hech narsani o'chirma.

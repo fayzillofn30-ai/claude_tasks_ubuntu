@@ -1,0 +1,17 @@
+.fa-toggle-off{
+color : red !important;
+}
+.fa-toggle-on{
+color : green !important;
+}
+.fa-trash{
+    color:brown !important;
+    font-size: 20px;
+}
+.edit_bnt{
+    color : rgb(86, 128, 23)  !important;
+    font-size: 20px !important;
+}
+thead{
+    background-color: aqua;
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "topic": "testing-standards",
+    "rule": "Har bir yangi funksiya yoki tuzatish uchun kamida bitta avtomatlashtirilgan test yozilishi shart."
+  },
+  {
+    "topic": "context-optimization",
+    "rule": "Context restart faqat Supervisor_User so'raganda qilinadi (qattiq prompt limiti yo'q). Restartdan oldin har doim 'python3 scripts/orcestor.py checkpoint add' buyrug'i bilan checkpoint saqlansin."
+  },
+  {
+    "topic": "error-handling",
+    "rule": "Barcha istisnolar (exceptions) jurnallanishi va foydalanuvchiga tushunarli formatda ko'rsatilishi kerak."
+  }
+]

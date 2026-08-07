@@ -1,0 +1,25 @@
+# Project Status — loyiha holati (doimiy yangilanib boradi)
+
+Bu fayl `simple_context.md`dan FARQLI — sessiya restartida o'chmaydi/qisqarmaydi,
+loyiha haqidagi bilim vaqt o'tishi bilan shu yerda TO'PLANIB boradi. Yangilash
+qoidasi `orcestor.config.env`dagi `PROJECT_STATUS_UPDATE` bilan belgilanadi
+(`every_task` — har task yakunida yangilanadi, `on_demand` — faqat
+Supervisor_User so'raganda).
+
+**Oxirgi yangilanish:** (bo'sh, birinchi tahlilda to'ldiriladi)
+
+## 1. Struktura
+(Executer_Agent tahlili asosida: texnologiya steki, papka tuzilishi, muhim
+modullar/fayllar — qisqa, bullet-point shaklida)
+
+## 2. Qoidalar va konventsiyalar
+(Loyihada aniqlangan yozilmagan/yozilgan qoidalar: kod uslubi, arxitektura
+qarorlari, nima qilish mumkin emas — masalan "backend fayllariga tegilmaydi"
+kabi)
+
+## 3. Bajarilgan ishlar (qisqa tarix)
+(Har yangilanishda bitta qisqa qator qo'shiladi, eskisi o'chirilmaydi — lekin
+juda uzayib ketsa, eng eski yozuvlar arxivga chiqariladi/ixchamlashtiriladi)
+
+## 4. Ma'lum muammolar / ochiq savollar
+(Aniqlangan, hali hal qilinmagan muammolar — nima uchun muhimligi bilan)
