@@ -1,6 +1,0 @@
-import {createChat} from "../../userchats/api/createChat"
-import {getMyChats} from "../../userchats/api/getMyChats"
-import {createChannel,getAllChannels,getOneChannel,removeChannel,updateChannel} from "../../channels/api/index"
-import {createGroup} from "../../groupes/api/createGroup"
-import {getAllGroupes} from "../../groupes/api/getAllGroups"
-import {getAllGroup,getOneGroup} from "../../groupes/api/getOneGroup"
