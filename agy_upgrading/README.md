@@ -46,3 +46,11 @@ Tafsilot: [`01-muammo-va-kelib-chiqishi.md#15`](./01-muammo-va-kelib-chiqishi.md
 
 **Qoida (`claude_tasks` konvensiyasiga mos):** noto'g'ri chiqqan yoki rad
 etilgan g'oyalar bu papkadan o'chirilmaydi, "❌ RAD ETILDI" deb belgilanadi.
+
+## Amaliy artefakt — `agy-align`
+
+Bu papkadagi tasdiqlangan xulosalar (2026-08-09) portativ, o'rnatiladigan
+skill sifatida qadoqlandi: [`../agy-align/`](../agy-align/README.md) —
+`orcestor-skill`ga o'xshab, lekin AGY'ning o'zi tomonidan bajariladigan
+o'rnatuvchi. Bu papka (`agy_upgrading`) — tadqiqot/dalil manbai bo'lib
+qoladi, `agy-align` — undan olingan, foydalanish uchun tayyor natija.
