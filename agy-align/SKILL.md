@@ -15,55 +15,85 @@ metodologiya uchun qarang: shu skill papkasidagi
 
 ## Bajarish qadamlari
 
-1. **Nishon faylni aniqla:** `~/.gemini/GEMINI.md` (`~` — joriy foydalanuvchi
-   uy papkasi, aniq mutlaq yo'lga kengaytiring).
+**Muhim tartib:** avval nishon faylni O'QING (1-2-qadam), keyingina
+qaror qabul qiling (3-4-qadam) — teskari tartibda emas, aks holda hali
+fayl holati noma'lum bo'lganda savol berish/bermaslikka noto'g'ri qaror
+qilish xavfi bor.
+
+1. **Nishon faylni aniqla va o'qi:** `~/.gemini/GEMINI.md` (`~` — joriy
+   foydalanuvchi uy papkasi, aniq mutlaq yo'lga kengaytiring). Fayl mavjud
+   bo'lsa, to'liq o'qing va quyidagilarni aniqlang: (a) `<!-- agy-align:vN
+   start -->` markeri bor-yo'qligi va versiya raqami `N`, (b) agar bor
+   bo'lsa, marker ichida `optional-start`/`optional-end` bo'limi ham
+   borligi (bu — oldingi o'rnatishda 3-4-band tanlangani-tanlanmaganining
+   dalili).
 
 2. **Payload'ni o'qi:** shu skill papkasidagi
-   [`rules/global-rules.md`](./rules/global-rules.md) faylini o'qing. Unda
-   `<!-- agy-align:v1 start -->` ... `<!-- agy-align:v1 end -->` markerlar
-   orasida asosiy (1-2) va ixtiyoriy (3-4, `optional-start`/`optional-end`
-   markerlari orasida) bo'limlar bor.
+   [`rules/global-rules.md`](./rules/global-rules.md) faylini o'qing.
 
-3. **Foydalanuvchidan bitta savol so'rang (faqat birinchi o'rnatishda):**
-   "Asosiy 2 qoidadan (xato tuzatish, tushunishni tasdiqlash) tashqari,
-   tajribaviy qoidalarni ham (qadam-narratsiya + muvozanatli ohang)
-   qo'shaymi?" Yo'q desa yoki javob bermasa — faqat asosiy 1-2 bandlarni
-   o'rnating (`optional-start`/`optional-end` orasidagi matnni olib
-   tashlang). Yangilashda (marker allaqachon mavjud bo'lsa) bu savol qayta
-   berilmaydi — oldingi tanlov saqlanadi (fayldagi mavjud holatni tekshirib
-   bilib oling: agar eski blokda 3-4-band bor edi — yangilaganda ham
-   saqlang, yo'q edi — qo'shmang).
+3. **Ixtiyoriy bandlar haqida qaror:**
+   - **Yangilash (1-qadamda marker allaqachon topilgan bo'lsa):** savol
+     berilmaydi — 1-qadamda aniqlangan oldingi tanlov (optional bo'lim
+     bor/yo'q) avtomatik saqlanadi.
+   - **Yangi o'rnatish (marker topilmagan) VA interaktiv/davom
+     ettiriladigan sessiya (`--continue` bilan javob kutish mumkin):**
+     foydalanuvchidan so'rang: "Asosiy 2 qoidadan tashqari, tajribaviy
+     qoidalarni ham (qadam-narratsiya + muvozanatli ohang) qo'shaymi?"
+   - **Yangi o'rnatish VA bitta-martalik headless chaqiruv (`agy -p`,
+     davom ettirish imkoni yo'q yoki noaniq):** SAVOL BERMANG — bu holda
+     kutish javobsiz qolib, hech narsa o'rnatilmay qolish xavfi bor.
+     Standart bo'yicha FAQAT asosiy 1-2 bandlarni o'rnating, va
+     xulosangizda aniq ayting: "Tajribaviy qoidalar (qadam-narratsiya,
+     muvozanatli ohang) o'rnatilmadi — xohlasangiz alohida so'rang."
 
-4. **Nishon faylni tekshiring:**
-   - **Fayl yo'q bo'lsa:** yarating, payload'ni yozing.
-   - **Fayl bor, lekin `<!-- agy-align:v1 start -->` marker yo'q:** mavjud
-     tarkibni SAQLAB, faylning oxiriga payload'ni qo'shing (append, hech
-     narsani o'chirmang — masalan mavjud "Default Language" qoidasi kabi
-     boshqa qoidalar bo'lishi mumkin).
-   - **Marker bor, versiyasi bir xil (`v1`):** hech narsa o'zgartirmang,
+4. **Nishon faylni yozing/yangilang:**
+   - **Fayl yo'q bo'lsa:** yarating, payload'ni (3-qadamda qaror
+     qilingan bandlar bilan) yozing.
+   - **Fayl bor, marker yo'q:** mavjud tarkibni SAQLAB, faylning oxiriga
+     payload'ni qo'shing (append, hech narsani o'chirmang — masalan
+     mavjud "Default Language" qoidasi kabi boshqa qoidalar bo'lishi
+     mumkin).
+   - **Marker bor, versiyasi bir xil:** hech narsa o'zgartirmang,
      foydalanuvchiga "allaqachon o'rnatilgan, o'zgarish yo'q" deb qisqa
      xabar bering.
-   - **Marker bor, versiyasi eski (masalan `v0`):** faqat marker orasidagi
-     blokni yangi payload bilan ALMASHTIRING, faylning qolgan qismiga
-     tegmang.
+   - **Marker bor, versiyasi eski:** ALMASHTIRISHDAN OLDIN, marker
+     ichidagi mavjud matnni yangi payload bilan solishtiring. Agar farq
+     faqat versiya-darajasidagi (kutilgan) bo'lsa — almashtiring. Agar
+     marker ichida kutilmagan qo'shimcha/o'zgartirilgan matn bo'lsa
+     (masalan foydalanuvchi qo'lda tahrirlagan/tarjima qilgan bo'lishi
+     mumkin) — DARHOL ALMASHTIRMANG, buni foydalanuvchiga ko'rsating va
+     tasdiq so'rang.
 
 5. **Hech qachon jim bajarmang:** amal qilingandan keyin, aniq nima
    qo'shilgani/o'zgargani haqida qisqa (3-5 qator) xulosa bering — fayl
-   nomi va qaysi bandlar o'rnatilgani bilan.
+   nomi, qaysi bandlar o'rnatilgani, va agar tajribaviy bandlar
+   o'rnatilmagan bo'lsa buni alohida ayting.
 
-6. **Tekshiruv (majburiy):** yozgandan keyin faylni qayta o'qib,
-   `<!-- agy-align:v1 start -->` markeri haqiqatan mavjudligini
-   tasdiqlang. Topilmasa — xato deb hisoblang, qayta urinib ko'ring va
-   foydalanuvchiga xabar bering.
+6. **Tekshiruv (majburiy, to'liq):** yozgandan keyin faylni QAYTA O'QIB
+   (faqat "borligini taxmin qilish" emas), quyidagilarni tasdiqlang:
+   (a) `<!-- agy-align:vN start -->` markeri **aynan bitta marta**
+   uchraydi (dublikat yo'q), (b) mos `<!-- agy-align:vN end -->` marker
+   ham mavjud, (c) marker ichidagi matn payload bilan mos keladi. Har
+   qanday nomuvofiqlik — xato deb hisoblang, qayta urinib ko'ring va
+   foydalanuvchiga aniq nima noto'g'ri ekanini ayting (shunchaki
+   "tekshirdim" deb da'vo qilmang — natijani ko'rsating).
 
 ## Keyingi safar nomi bilan chaqirilishi uchun
 
 Agar bu skill hozir vaqtinchalik yo'l orqali (masalan foydalanuvchi to'liq
-papka yo'lini bergan holda) ishga tushirilayotgan bo'lsa va u
-`~/.gemini/antigravity-cli/builtin/skills/` (yoki `~/.gemini/antigravity/builtin/skills/`)
-ichida hali yo'q bo'lsa — shu skill papkasini (`SKILL.md`, `rules/`) o'sha
-papkaga `agy-align` nomi bilan nusxalashni foydalanuvchiga taklif qiling
-(masalan: `cp -r <shu-papka> ~/.gemini/antigravity-cli/builtin/skills/agy-align`).
-Shundan keyin bu skill istalgan loyihada, faqat nomi ("agy-align") yoki
-tavsifidagi trigger so'zlar bilan chaqirilishi mumkin bo'ladi — to'liq
-yo'l qayta berilishi shart emas.
+papka yo'lini bergan holda) ishga tushirilayotgan bo'lsa:
+
+- **`~/.gemini/antigravity-cli/builtin/skills/agy-align/` mavjud emas:**
+  shu skill papkasini (`SKILL.md`, `REPORT.md`, `rules/`) o'sha papkaga
+  nusxalashni foydalanuvchiga taklif qiling (masalan:
+  `cp -r <shu-papka> ~/.gemini/antigravity-cli/builtin/skills/agy-align`).
+- **Mavjud, lekin eski versiya (`SKILL.md`dagi `rules/global-rules.md`
+  ichidagi marker versiyasini solishtiring):** yangilashni taklif qiling
+  (eskisini almashtirish), lekin AVVAL foydalanuvchidan tasdiq so'rang —
+  shu papka ustida qo'lda o'zgartirish qilingan bo'lishi mumkin.
+- **Mavjud va bir xil versiya:** hech narsa qilmang, "allaqachon
+  o'rnatilgan" deb xabar bering.
+
+Nusxalangandan keyin bu skill istalgan loyihada, faqat nomi
+("agy-align") yoki tavsifidagi trigger so'zlar bilan chaqirilishi mumkin
+bo'ladi — to'liq yo'l qayta berilishi shart emas.
