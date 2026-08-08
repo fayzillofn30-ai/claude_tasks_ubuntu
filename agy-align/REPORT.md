@@ -68,6 +68,39 @@ naqshini tasdiqlaydi (masalan issue #18525, #13758, #12044, #22145).
 | 3. Qadam-narratsiya odati | O'rta — mexanizmi (global fayl) sinalgan, bu aniq matn alohida sinalmagan |
 | 4. Muvozanatli ohang | O'rta — mexanizmi sinalgan, bu aniq matn alohida sinalmagan |
 
+## Jonli o'rnatish sinovi (real foydalanuvchi sessiyasi)
+
+`SKILL.md`ning qadam-tartibi tuzatilgandan keyin, real `agy` sessiyasida
+`/agy-align` chaqirilib sinaldi. Natija **qisman ijobiy**:
+
+- ✅ **Qadam-tartib tuzatishi ishladi:** avval fayl o'qildi, marker
+  yo'qligi aniqlandi, **shundagina** ixtiyoriy bandlar haqida savol
+  berildi (oldingi versiyada bu ikkalasi teskari tartibda bo'lardi).
+- ✅ **Yangilash-oqimi to'g'ri ishladi:** versiya solishtirildi, farq
+  yo'qligi to'g'ri aniqlandi, ortiqcha yozish bo'lmadi.
+- ❌ **Yangi topilma — meta-skill interferensiyasi:** foydalanuvchida
+  boshqa, "global konfiguratsiya joylashuvi" haqida o'z (tekshirilmagan)
+  konvensiyasini tasvirlaydigan alohida skill o'rnatilgan bo'lsa, AGY
+  "global skill o'rnat" so'rovini bajarishda **shu README'dagi
+  tasdiqlangan yo'l o'rniga** o'sha boshqa skilldan olingan yo'lni
+  tanlashi mumkin ekan. Bu holatda destination-papka oldindan mavjud
+  bo'lmagani sababli haqiqiy `cp` xatosiga (kontent manzil papka ichiga
+  "tekis" joylashib, kutilgan ichki papka strukturasi buzilishiga) olib
+  keldi.
+- ❌ **Tekshirmasdan "100% ta'minlayman" da'vosi:** o'rnatish (hatto
+  noto'g'ri chiqqan o'rnatish) darhol keyin, hech qanday real tekshiruv
+  o'tkazmasdan, "tizim arxitekturasiga ko'ra... 100% ta'minlaydi" kabi
+  ishonchli, lekin tekshirilmagan texnik da'vo berildi — keyinchalik bu
+  noto'g'ri chiqdi.
+
+**Xulosa:** `agy-align`ning o'z ichidagi mantiq (marker-tekshiruv,
+qadam-tartibi) endi ishonchli ishlayapti. Lekin **paket boshqa
+meta-skill'lar bilan bir muhitda ishlaganda**, ular AGY'ning yo'l
+tanlash qarorlariga ta'sir qilishi va README'dagi tasdiqlangan
+ko'rsatmalarni chetlab o'tishi mumkin — bu paketning o'zidan tashqaridagi
+xavf, lekin foydalanuvchiga alohida ogohlantirish sifatida hujjatlashtirildi
+(yuqoridagi "Ogohlantirish" bloki, `README.md`).
+
 ## Nega global fayl, nega loyiha fayli emas
 
 Bitta ehtimoliy izoh (tasdiqlanmagan gipoteza): loyiha-darajasidagi

@@ -57,12 +57,30 @@ boshqa skill (`orcestor-start`) orqali kuzatilgan/tasdiqlangan. Shu
 papkaga nusxalang:
 
 ```bash
-cp -r <agy-align papkasini ko'chirgan joyingiz> \
-      ~/.gemini/antigravity-cli/builtin/skills/agy-align
+mkdir -p ~/.gemini/antigravity-cli/builtin/skills/agy-align
+cp -r <agy-align papkasini ko'chirgan joyingiz>/* \
+      ~/.gemini/antigravity-cli/builtin/skills/agy-align/
 ```
+
+(`mkdir -p` avval — Unix `cp -r manba manzil` xatti-harakati manzil
+papka oldindan mavjud emasligiga qarab farq qiladi: agar mavjud bo'lmasa,
+ba'zi holatlarda manba nomi yo'qolib, tarkib manzil papka ichiga "tekis"
+qo'yilib ketishi mumkin — real sinovda aynan shu xato AGY tomonidan
+boshqa bir global manzilda ro'yxatga olingan, real muammoga sabab bo'lgan.
+`mkdir -p` bilan bu xavf butunlay yo'qoladi.)
 
 Shundan keyin istalgan loyihada AGY'ga shunchaki **"agy-align o'rnat"**
 deb yozish kifoya — to'liq yo'l kerak emas.
+
+> **Ogohlantirish:** agar kompyuteringizda boshqa, "global konfiguratsiya
+> joylashuvi"ni tasvirlaydigan skill/hujjat allaqachon o'rnatilgan bo'lsa
+> (masalan foydalanuvchi tomonidan qo'shilgan meta-skill), AGY o'sha
+> skilldan olingan (tekshirilmagan) yo'l konvensiyasini ushbu README'dagi
+> tavsiya o'rniga ishlatib yuborishi mumkin — real sinovda aynan shu holat
+> kuzatilgan (AGY README'dagi yo'l o'rniga boshqa, tasdiqlanmagan global
+> yo'lni tanladi va u yerda haqiqiy o'rnatish xatosiga yo'l qo'ydi). Faqat
+> shu README'dagi yo'lga qat'iy rioya qilinishini alohida so'rang, yoki
+> boshqa meta-skill'larni vaqtincha o'chirib turing.
 
 > **Eslatma:** Antigravity IDE (CLI'dan tashqari) uchun bir xil
 > mexanizm `~/.gemini/antigravity/builtin/skills/`da ham bo'lishi mumkin
