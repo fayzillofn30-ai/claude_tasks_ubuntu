@@ -88,14 +88,16 @@ deb yozish kifoya — to'liq yo'l kerak emas.
 
 ## Nima o'rnatiladi
 
-`rules/global-rules.md` ikki qatlamdan iborat:
+`rules/global-rules.md` ikki qatlamdan iborat — 3 ta majburiy, 2 ta
+ixtiyoriy band:
 
 | Band | Ishonch darajasi |
 |---|---|
-| 1. Xato tuzatish protokoli | ✅ To'g'ridan-to'g'ri sinovdan o'tgan |
-| 2. Tushunishni tasdiqlash protokoli | ✅ To'g'ridan-to'g'ri sinovdan o'tgan |
-| 3. Qadam-narratsiya odati (spinner-fe'l o'rnini bosuvchi) | ⚠️ Mexanizm sinovdan o'tgan, bu aniq matn alohida sinalmagan |
-| 4. Muvozanatli ohang (anti-laganbardorlik) | ⚠️ Alohida sinovdan o'tkazilmagan |
+| 1. Xato tuzatish protokoli (majburiy) | ✅ To'g'ridan-to'g'ri sinovdan o'tgan |
+| 2. Tushunishni tasdiqlash protokoli (majburiy) | ✅ To'g'ridan-to'g'ri sinovdan o'tgan |
+| 3. Tekshirilgan/tekshirilmagan da'volarni ajratish (majburiy, v2) | ⚠️ Real xatodan kelib chiqib qo'shilgan — qarang `REPORT.md`, "Jonli o'rnatish sinovi" |
+| 4. Qadam-narratsiya odati (ixtiyoriy) | ⚠️ Mexanizm sinovdan o'tgan, bu aniq matn alohida sinalmagan |
+| 5. Muvozanatli ohang (ixtiyoriy) | ⚠️ Alohida sinovdan o'tkazilmagan |
 
 Tafsilot: [`REPORT.md`](./REPORT.md). O'rnatish paytida AGY 3-4-bandlarni
 qo'shish/qo'shmaslikni so'raydi (`SKILL.md`, 3-qadam).

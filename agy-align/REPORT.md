@@ -65,8 +65,9 @@ naqshini tasdiqlaydi (masalan issue #18525, #13758, #12044, #22145).
 |---|---|
 | 1. Xato tuzatish protokoli | Yuqori — to'g'ridan-to'g'ri sinaldi |
 | 2. Tushunishni tasdiqlash protokoli | Yuqori — to'g'ridan-to'g'ri sinaldi |
-| 3. Qadam-narratsiya odati | O'rta — mexanizmi (global fayl) sinalgan, bu aniq matn alohida sinalmagan |
-| 4. Muvozanatli ohang | O'rta — mexanizmi sinalgan, bu aniq matn alohida sinalmagan |
+| 3. Tekshirilgan/tekshirilmagan da'volarni ajratish | O'rta — real xatodan (pastga qarang) kelib chiqib qo'shilgan, mexanizmi (global fayl) sinalgan, bu aniq matn alohida qayta-sinalmagan |
+| 4. Qadam-narratsiya odati (ixtiyoriy) | O'rta — mexanizmi (global fayl) sinalgan, bu aniq matn alohida sinalmagan |
+| 5. Muvozanatli ohang (ixtiyoriy) | O'rta — mexanizmi sinalgan, bu aniq matn alohida sinalmagan |
 
 ## Jonli o'rnatish sinovi (real foydalanuvchi sessiyasi)
 
@@ -100,6 +101,15 @@ tanlash qarorlariga ta'sir qilishi va README'dagi tasdiqlangan
 ko'rsatmalarni chetlab o'tishi mumkin — bu paketning o'zidan tashqaridagi
 xavf, lekin foydalanuvchiga alohida ogohlantirish sifatida hujjatlashtirildi
 (yuqoridagi "Ogohlantirish" bloki, `README.md`).
+
+**v2 tuzatishi:** "Tekshirmasdan 100% ta'minlayman" da'vosi shu sinovdan
+kelib chiqib, `rules/global-rules.md`ga yangi **majburiy** 3-band
+("Tekshirilgan/tekshirilmagan da'volarni ajratish") sifatida kiritildi —
+`SKILL.md`ning o'zida ham xuddi shu turdagi da'voni ("skil keyingi
+sessiyada avtomatik topiladi") oldini oluvchi aniq ko'rsatma qo'shildi.
+Bu muammoning to'liq yechilganiga hali kafolat yo'q (model xarakteri
+darajasidagi moyillik), lekin endi aniq, majburiy qoida sifatida
+kodlashtirilgan.
 
 ## Nega global fayl, nega loyiha fayli emas
 

@@ -84,11 +84,15 @@ portativ bo'lib qolishi kerak, qarang [`08`](./08-spinner-verbs-tadqiqoti.md)dag
    fayllar qolgan bo'lishi mumkin** — tozalash kerak (ustidan to'g'ri
    struktura bilan qayta yozilgan bo'lsa ham, eski chalkash qoldiqlar
    tekshirilishi tavsiya etiladi).
-3. **Muammo B (tekshirmasdan ishonchli da'vo qilish)** — hech qanday
-   sozlama bilan hali yechilmagan, chunki bu AGY'ning umumiy xarakter
-   xususiyati (qarang [4.6](./04-taxminlar-va-tekshirish.md#46-real-kuzatilgan-dalil--faktik-chekinish-2026-08-08-jonli-suhbat)).
-   `agy-align`ning "hech qachon jim bajarma, tekshiruvni ko'rsat" qoidasi
-   shuning uchun ham SKILL.md ichida, ham global qoidalarda (3-band,
-   "muvozanatli ohang" — "ishonch past bo'lsa aniq belgila") mavjud, lekin
-   bu holat shuni ko'rsatdiki, bu qoida hali **hamma vaziyatda** avtomatik
-   qo'llanmasligi mumkin.
+3. ~~Muammo B (tekshirmasdan ishonchli da'vo qilish)~~ — ✅ **v2'da
+   majburiy qoida sifatida kodlashtirildi** (2026-08-09): `global-rules.md`ga
+   yangi 3-band ("Tekshirilgan/tekshirilmagan da'volarni ajratish")
+   qo'shildi — "100%"/"albatta" kabi mutlaq so'zlarni faqat mexanik
+   tarzda tekshirilgan holatlarda ishlatish, aks holda ochiq
+   "tekshira olmadim" deb aytish talab qilinadi. `SKILL.md`ning
+   "keyingi safar chaqirilishi" bo'limiga ham xuddi shu turdagi
+   (kelajak-sessiya haqidagi) da'voni oldini oluvchi aniq ko'rsatma
+   qo'shildi. **Eslatma:** bu AGY'ning umumiy xarakter xususiyati
+   (qarang [4.6](./04-taxminlar-va-tekshirish.md#46-real-kuzatilgan-dalil--faktik-chekinish-2026-08-08-jonli-suhbat))
+   bo'lgani uchun 100% kafolat yo'q — qoida endi mavjud, lekin
+   qo'llanishi hali qayta amaliy sinovdan o'tkazilmagan.

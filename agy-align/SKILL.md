@@ -37,12 +37,14 @@ qilish xavfi bor.
      bor/yo'q) avtomatik saqlanadi.
    - **Yangi o'rnatish (marker topilmagan) VA interaktiv/davom
      ettiriladigan sessiya (`--continue` bilan javob kutish mumkin):**
-     foydalanuvchidan so'rang: "Asosiy 2 qoidadan tashqari, tajribaviy
-     qoidalarni ham (qadam-narratsiya + muvozanatli ohang) qo'shaymi?"
+     foydalanuvchidan so'rang: "Asosiy 3 qoidadan (xato tuzatish,
+     tushunishni tasdiqlash, tekshirilgan/tekshirilmagan da'vo farqi)
+     tashqari, tajribaviy qoidalarni ham (qadam-narratsiya + muvozanatli
+     ohang) qo'shaymi?"
    - **Yangi o'rnatish VA bitta-martalik headless chaqiruv (`agy -p`,
      davom ettirish imkoni yo'q yoki noaniq):** SAVOL BERMANG — bu holda
      kutish javobsiz qolib, hech narsa o'rnatilmay qolish xavfi bor.
-     Standart bo'yicha FAQAT asosiy 1-2 bandlarni o'rnating, va
+     Standart bo'yicha FAQAT asosiy 1-3 bandlarni o'rnating, va
      xulosangizda aniq ayting: "Tajribaviy qoidalar (qadam-narratsiya,
      muvozanatli ohang) o'rnatilmadi — xohlasangiz alohida so'rang."
 
@@ -83,17 +85,31 @@ qilish xavfi bor.
 Agar bu skill hozir vaqtinchalik yo'l orqali (masalan foydalanuvchi to'liq
 papka yo'lini bergan holda) ishga tushirilayotgan bo'lsa:
 
-- **`~/.gemini/antigravity-cli/builtin/skills/agy-align/` mavjud emas:**
-  shu skill papkasini (`SKILL.md`, `REPORT.md`, `rules/`) o'sha papkaga
-  nusxalashni foydalanuvchiga taklif qiling (masalan:
-  `cp -r <shu-papka> ~/.gemini/antigravity-cli/builtin/skills/agy-align`).
-- **Mavjud, lekin eski versiya (`SKILL.md`dagi `rules/global-rules.md`
-  ichidagi marker versiyasini solishtiring):** yangilashni taklif qiling
-  (eskisini almashtirish), lekin AVVAL foydalanuvchidan tasdiq so'rang —
-  shu papka ustida qo'lda o'zgartirish qilingan bo'lishi mumkin.
+- **Manzil papka (`~/.gemini/antigravity-cli/builtin/skills/agy-align/`)
+  mavjud emas:** AVVAL `mkdir -p` bilan uni yarating, KEYIN nusxalang:
+  ```bash
+  mkdir -p ~/.gemini/antigravity-cli/builtin/skills/agy-align
+  cp -r <shu-papka>/* ~/.gemini/antigravity-cli/builtin/skills/agy-align/
+  ```
+  (Ikkala buyruqni ham ALOHIDA, `mkdir -p` BIRINCHI bajarilishi shart —
+  aks holda Unix `cp -r manba manzil` xatti-harakati manzil papka
+  mavjudligiga qarab farq qiladi va tarkib noto'g'ri, "tekis"
+  joylashishi mumkin — real sinovda aynan shu xato yuz bergan va
+  hujjatlashtirilgan, `REPORT.md`, "Jonli o'rnatish sinovi" bo'limi.)
+  **Boshqa manzil taklif qilinsa** (masalan boshqa skill/hujjat orqali
+  "global joylashuv" deb tasvirlangan boshqa papka) — shunga ergashmang,
+  faqat shu bo'limda ko'rsatilgan manzilga rioya qiling.
+- **Mavjud, lekin eski versiya:** yangilashni taklif qiling, lekin AVVAL
+  foydalanuvchidan tasdiq so'rang — shu papka ustida qo'lda o'zgartirish
+  qilingan bo'lishi mumkin.
 - **Mavjud va bir xil versiya:** hech narsa qilmang, "allaqachon
   o'rnatilgan" deb xabar bering.
 
-Nusxalangandan keyin bu skill istalgan loyihada, faqat nomi
-("agy-align") yoki tavsifidagi trigger so'zlar bilan chaqirilishi mumkin
-bo'ladi — to'liq yo'l qayta berilishi shart emas.
+**MUHIM (band 3 bilan bog'liq):** nusxalash tugagach, bu skil **keyingi
+sessiyada avtomatik topilishini "100%"/"albatta" deb da'vo qilmang** —
+buni joriy sessiyada mexanik tarzda tekshirib bo'lmaydi (yangi sessiya
+kerak). Buning o'rniga: "Fayllar nusxalandi va tekshirildi (mavjudligi
+tasdiqlandi). Keyingi sessiyada avtomatik topilishi kutilmoqda, lekin bu
+hali tekshirilmagan — yangi sessiyada `agy-align` deb yozib ko'ring va
+natijani ayting" kabi aniq, tekshirilgan/tekshirilmagan farqini
+ko'rsatuvchi xabar bering.
