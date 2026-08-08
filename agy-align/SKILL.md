@@ -6,12 +6,12 @@ description: AGY (Antigravity CLI)ning global xatti-harakat qoidalarini (~/.gemi
 # agy-align — AGY global xatti-harakat sozlovchisi
 
 Bu skill AGY'ning o'zi (Executer_Agent) tomonidan bajariladi — Claude yoki
-boshqa Orcestor_Agent emas. Maqsad: `claude_tasks/agy_upgrading/`da
-tekshirilgan, real testlar bilan tasdiqlangan xatti-harakat qoidalarini
-global `~/.gemini/GEMINI.md` fayliga o'rnatish/yangilash — bir marta
-bajarilsa, barcha keyingi loyihalar va headless (`agy -p`) chaqiruvlarda
-avtomatik amal qiladi (dalil: `agy_upgrading/06-test-natijalari.md`, Test
-10/12/13).
+boshqa Orcestor_Agent emas. Maqsad: real testlar bilan tasdiqlangan
+xatti-harakat qoidalarini global `~/.gemini/GEMINI.md` fayliga
+o'rnatish/yangilash — bir marta bajarilsa, barcha keyingi loyihalar va
+headless (`agy -p`) chaqiruvlarda avtomatik amal qiladi. To'liq dalil va
+metodologiya uchun qarang: shu skill papkasidagi
+[`REPORT.md`](./REPORT.md) — mustaqil hujjat, tashqi papkaga bog'liq emas.
 
 ## Bajarish qadamlari
 

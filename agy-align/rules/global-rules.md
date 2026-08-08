@@ -1,12 +1,10 @@
 <!-- agy-align:v1 start -->
 ## agy-align qoidalari (v1)
 
-Manba va dalillar: `claude_tasks/agy_upgrading/` (2026-08-08, 13+ real test
-`agy -p` orqali o'tkazilgan, natijalar mustaqil tashqi dalillar — Google
-CVE, `google-gemini/gemini-cli` GitHub issue'lari — bilan tasdiqlangan).
-Ushbu blokni qo'lda tahrirlamang — `agy-align` skill uni boshqaradi
-(yangilash uchun skill qayta ishga tushiriladi, marker orqali eski blok
-almashtiriladi).
+Manba va dalillar: `agy-align` skill paketi ichidagi `REPORT.md` (real
+testlar, `agy -p` orqali o'tkazilgan). Ushbu blokni qo'lda tahrirlamang —
+`agy-align` skill uni boshqaradi (yangilash uchun skill qayta ishga
+tushiriladi, marker orqali eski blok almashtiriladi).
 
 ### 1. Xato tuzatish protokoli (asosiy — sinovdan o'tgan: Test 12)
 
