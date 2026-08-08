@@ -43,6 +43,7 @@ Tafsilot: [`01-muammo-va-kelib-chiqishi.md#15`](./01-muammo-va-kelib-chiqishi.md
 6. [`06-test-natijalari.md`](./06-test-natijalari.md) — **real testlar** (`agy -p` orqali, 7 ta test) — 03-bo'limdagi taklifning bir qismini rad etadi/tuzatadi
 7. [`07-tashqi-community-dalillar.md`](./07-tashqi-community-dalillar.md) — mustaqil tashqi dalillar (Google'ning o'z CVE'si, GitHub issue'lar, developer sharhlari) — 06-bo'limdagi shaxsiy testlarni tasdiqlaydi
 8. [`08-spinner-verbs-tadqiqoti.md`](./08-spinner-verbs-tadqiqoti.md) — Claude Code'ning spinner-fe'llarini AGY'ga tadbiq qilish tadqiqoti — ❌ binary-darajasida rad etildi (AGY'da mos sozlama kaliti mavjud emas)
+9. [`09-agy-align-jonli-sinov.md`](./09-agy-align-jonli-sinov.md) — `agy-align`ning real foydalanuvchi sessiyasidagi jonli sinovi: qadam-tartib tuzatishi tasdiqlandi, lekin meta-skill interferensiyasi (`agy-customizations`) real `cp`-bug'iga va tekshirmasdan ishonchli da'vo qilishga olib keldi — qisman hal qilingan, qoldiqlar bor
 
 **Qoida (`claude_tasks` konvensiyasiga mos):** noto'g'ri chiqqan yoki rad
 etilgan g'oyalar bu papkadan o'chirilmaydi, "❌ RAD ETILDI" deb belgilanadi.

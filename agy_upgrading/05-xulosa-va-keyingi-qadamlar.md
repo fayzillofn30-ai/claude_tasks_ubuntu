@@ -44,6 +44,14 @@ olib keldi.**
 
 ## Keyingi qadamlar (Foydalanuvchi vaqt topganda)
 
+0. **(YANGI, 2026-08-09, ustuvor) `agy-customizations` skillini
+   o'chirish** — Foydalanuvchi buni real sessiyada so'ragan, lekin AGY
+   bajarmagan (qarang [`09-agy-align-jonli-sinov.md`](./09-agy-align-jonli-sinov.md)).
+   Bu skill hali o'rnatilgan holda qolgani AGY'ni `agy-align`ning
+   tasdiqlangan o'rnatish yo'lidan chetlatib, real `cp`-bug'iga sabab
+   bo'lgan — shuning uchun shunchaki tozalik emas, **funksional zarurat**.
+   Shu bilan birga `~/.gemini/config/skills/` ostida qolgan noto'g'ri
+   (tekis) joylashgan eski fayllarni ham tozalash kerak.
 1. ~~Global `~/.gemini/GEMINI.md`ni headless rejimda sinash~~ — ✅ BAJARILDI
    VA DOIMIY QABUL QILINDI (Test 10, 12, 13; Foydalanuvchi tasdig'i:
    2026-08-08). Ikkita qoida ("avval tashxis qo'y", "tushunganini qisqa
