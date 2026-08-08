@@ -1,6 +1,10 @@
 # agy_upgrading — AGY (Antigravity)ni Claude uslubiga yaqinlashtirish rejasi
 
-**Holat: REJA bosqichida (2026-08-08 boshlangan) — hali qo'llanilmagan.**
+**Holat: QISMAN QO'LLANILGAN (2026-08-08 boshlangan).** Ikkita asosiy qoida
+("avval tashxis qo'y", "tushunganini qisqa ayt") global
+`~/.gemini/GEMINI.md`ga yozilgan va Foydalanuvchi tomonidan doimiy deb
+tasdiqlangan — amalda ishlayapti. Qolgan qismlar (persona/ohang bloki,
+triage strategiyasi) hali reja bosqichida.
 
 Bu papka kod emas, **g'oyalarni yo'qotmaslik uchun yozilgan reja
 hujjatlari** — `zdes_frontend` loyihasidagi suhbat davomida Fayzillo bergan
@@ -38,6 +42,7 @@ Tafsilot: [`01-muammo-va-kelib-chiqishi.md#15`](./01-muammo-va-kelib-chiqishi.md
 5. [`05-xulosa-va-keyingi-qadamlar.md`](./05-xulosa-va-keyingi-qadamlar.md) — umumiy xulosa, keyingi amaliy qadamlar
 6. [`06-test-natijalari.md`](./06-test-natijalari.md) — **real testlar** (`agy -p` orqali, 7 ta test) — 03-bo'limdagi taklifning bir qismini rad etadi/tuzatadi
 7. [`07-tashqi-community-dalillar.md`](./07-tashqi-community-dalillar.md) — mustaqil tashqi dalillar (Google'ning o'z CVE'si, GitHub issue'lar, developer sharhlari) — 06-bo'limdagi shaxsiy testlarni tasdiqlaydi
+8. [`08-spinner-verbs-tadqiqoti.md`](./08-spinner-verbs-tadqiqoti.md) — Claude Code'ning spinner-fe'llarini AGY'ga tadbiq qilish tadqiqoti — ❌ binary-darajasida rad etildi (AGY'da mos sozlama kaliti mavjud emas)
 
 **Qoida (`claude_tasks` konvensiyasiga mos):** noto'g'ri chiqqan yoki rad
 etilgan g'oyalar bu papkadan o'chirilmaydi, "❌ RAD ETILDI" deb belgilanadi.
