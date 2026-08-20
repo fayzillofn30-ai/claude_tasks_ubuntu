@@ -1,6 +1,6 @@
 # 9. `agy-align` — jonli o'rnatish sinovi va topilgan yangi muammolar (2026-08-09)
 
-**Holat: QISMAN HAL QILINGAN.** `agy-align` paketi (qarang
+**Holat: TO'LIQ HAL QILINGAN (2026-08-09, kech).** `agy-align` paketi (qarang
 [`../agy-align/README.md`](../agy-align/README.md)) qurilgach, real
 foydalanuvchi sessiyasida (Antigravity CLI, jonli `agy` muhitida)
 sinaldi. Natija aralash: paketning o'z ichki mantig'i ishladi, lekin
@@ -75,15 +75,36 @@ bo'lsa, AGY tasdiqlangan yo'ldan chetga chiqishi mumkinligi haqida).
 portativ bo'lib qolishi kerak, qarang [`08`](./08-spinner-verbs-tadqiqoti.md)dagi
 "mustaqil paket" tamoyili).
 
-## 9.4 Hal qilinmagan qoldiqlar (keyingi qadam)
+## 9.4 Qoldiqlar — barchasi hal qilindi (2026-08-09, kech, Claude sessiyasida)
 
-1. **`agy-customizations` hali o'chirilmagan.** Foydalanuvchi buni
-   so'ragan, lekin AGY bajarmagan. Alohida, aniq so'rov bilan qayta
-   so'ralishi kerak.
-2. **`~/.gemini/config/skills/` ostida noto'g'ri (tekis) joylashgan eski
-   fayllar qolgan bo'lishi mumkin** — tozalash kerak (ustidan to'g'ri
-   struktura bilan qayta yozilgan bo'lsa ham, eski chalkash qoldiqlar
-   tekshirilishi tavsiya etiladi).
+1. ✅ **`agy-customizations` o'chirildi.** Ikkala nusxa ham qo'lda
+   tekshirilib o'chirildi: `~/.gemini/antigravity-cli/builtin/skills/agy-customizations/`
+   va `~/.gemini/antigravity/builtin/skills/agy-customizations/` (IDE
+   nusxasi). O'chirishdan oldin bog'liqlik tekshiruvi o'tkazildi:
+   - `~/.gemini/GEMINI.md` ichida `agy-customizations`ga hech qanday
+     eslatma yo'q edi (faqat `agy-align:v2` bloki bor).
+   - `agy-align` (na loyihadagi, na o'rnatilgan nusxasi) `agy-customizations`ga
+     hech qanday referens qilmaydi.
+   - `agy-customizations`ning o'zi (`SKILL.md` + 6 ta `docs/*.md`) ichida
+     `agy-align`ga referens yo'q va fayllar Aug 2 15:52dan beri
+     o'zgarmagan (ya'ni jonli sinov paytida ichiga hech narsa "kirib
+     qolmagan" — ikkala skill mustaqil, faqat AGY'ning noto'g'ri yo'l
+     tanlashiga sabab bo'lgan, structural bog'liqlik emas).
+   Xulosa: o'chirish `agy-align`ning ishlashiga ham, `agy` CLI'ning o'z
+   funksionalligiga ham ta'sir qilmadi — `agy-customizations` faqat
+   ixtiyoriy, buyruq bermaydigan reference-skill edi.
+2. ✅ **`~/.gemini/config/skills/` tozalangan holatda topildi** — papka
+   mavjud, lekin bo'sh (0 element). Ya'ni noto'g'ri "tekis" joylashgan
+   qoldiq fayllar allaqachon yo'q edi (avvalgi tozalashda yoki hech
+   qachon to'liq yozilmagan). Shu bilan birga, `~/.gemini/antigravity-cli/skills.json`
+   fayli — `agy`ning skill-ro'yxatida "From ...skills.json" deb
+   ko'rsatilgan manba — **haqiqatda diskda mavjud emasligi** tasdiqlandi
+   (butun `~/.gemini` bo'ylab qidiruv natija bermadi). Bu yozuv `agy`ning
+   `builtin/skills/` uchun ishlatadigan ichki, statik label'i, real
+   config fayl emas. Bu topilma `agy-align/README.md`dagi "2-usul"
+   (`~/.gemini/antigravity-cli/builtin/skills/<nomi>/` — yagona
+   tasdiqlangan o'rnatish yo'li) tavsiyasini ikkinchi marta, mustaqil
+   ravishda kuchaytiradi.
 3. ~~Muammo B (tekshirmasdan ishonchli da'vo qilish)~~ — ✅ **v2'da
    majburiy qoida sifatida kodlashtirildi** (2026-08-09): `global-rules.md`ga
    yangi 3-band ("Tekshirilgan/tekshirilmagan da'volarni ajratish")

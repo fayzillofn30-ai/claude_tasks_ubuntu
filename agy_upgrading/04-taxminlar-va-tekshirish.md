@@ -105,12 +105,25 @@ ishladi — aniq, amaliy taklif (`/learn`, `/grill-me`) berdi, to'qish yoki
 laganbardorlik kuzatilmadi. **Xulosa:** muammo universal emas, balki
 **faktik da'voga qarshi bosim ostida** kuchli namoyon bo'ladi.
 
-**Ochiq savol:** shu suhbatda taklif qilingan `/learn` va `/grill-me`
+~~**Ochiq savol:** shu suhbatda taklif qilingan `/learn` va `/grill-me`
 buyruqlari AGY'ning rasmiy, hujjatlashtirilgan slash-komandalarimi, yoki
 xuddi "Crystallizing" kabi **o'zi o'ylab topib, mavjud sifatida taqdim
-qilingan** narsalarmi — hali tekshirilmagan. Shu sabab ular ishlatilishidan
-oldin tasdiqlanishi kerak (qarang [5-bo'lim](./05-xulosa-va-keyingi-qadamlar.md)dagi
-test rejasi).
+qilingan** narsalarmi — hali tekshirilmagan.~~ — ✅ **HAL QILINDI
+(2026-08-09, binary-darajasidagi dalil bilan):** `strings
+/home/fayzillo/.local/bin/agy` orqali ikkalasi ham **haqiqiy, AGY
+binary'sining o'ziga qattiq kodlangan (hard-coded) rasmiy funksiyalar**
+ekani tasdiqlandi:
+- `<LEARN>...</LEARN>` XML-teg + ichki tavsif: *"The user invoked /learn
+  to persist reusable behaviors from recent interactions, corrections, or
+  successes. Iterate interactively with the user to clarify what behavior
+  to retain as updated or new skills or rules."*
+- `<GRILL_ME>...</GRILL_ME>` XML-teg — alohida, mustaqil belgi sifatida
+  binary ichida mavjud.
+
+Demak bu ikkisi "Crystallizing"dan farqli — AGY o'zi to'qimagan, chindan
+ham mavjud imkoniyatlar. (8-band spinner-verb tadqiqotidagi
+["binary-darajasida tekshirish" metodologiyasi](./08-spinner-verbs-tadqiqoti.md)
+bilan bir xil usul qo'llanildi.)
 
 ## 4.7 Sycophancy real kamayishi — subyektiv, o'lchash qiyin
 

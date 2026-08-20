@@ -1,0 +1,15 @@
+{
+  "name": "agy-ui-analizer",
+  "version": "1.0.0",
+  "description": "Frontend/UI qismini avtomatik screenshot + Gemini Vision API orqali tahlil qilib, topilgan vizual bug'larni Executer_Agent (agy) orqali tuzatuvchi Agy skill. Qarang README.md va docs/design-rationale.md.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^25.5.0"
+  }
+}

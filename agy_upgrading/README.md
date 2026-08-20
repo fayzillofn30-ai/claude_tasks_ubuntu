@@ -1,10 +1,15 @@
 # agy_upgrading — AGY (Antigravity)ni Claude uslubiga yaqinlashtirish rejasi
 
-**Holat: QISMAN QO'LLANILGAN (2026-08-08 boshlangan).** Ikkita asosiy qoida
-("avval tashxis qo'y", "tushunganini qisqa ayt") global
-`~/.gemini/GEMINI.md`ga yozilgan va Foydalanuvchi tomonidan doimiy deb
-tasdiqlangan — amalda ishlayapti. Qolgan qismlar (persona/ohang bloki,
-triage strategiyasi) hali reja bosqichida.
+**Holat: ASOSIY QISM QO'LLANILGAN VA SINALGAN (2026-08-08 boshlangan,
+2026-08-09da kengaytirildi).** Uchta asosiy qoida ("avval tashxis qo'y",
+"tushunganini qisqa ayt", "tekshirilgan/tekshirilmagan da'volarni
+ajratish") + "muvozanatli ohang" bloki global `~/.gemini/GEMINI.md`ga
+(`agy-align` skill orqali) yozilgan, doimiy, va real sinovlarda (Test
+1-16) tasdiqlangan. Triage strategiyasi ham "global fayl avtomatik
+qamrab oladi" tamoyiliga mos yangilangan. Ochiq qolgan qismlar: interaktiv
+rejim testi, bir haftalik amaliy sinov natijasi, va ikkita yangi kuzatuv
+(ko'p-qismli so'rovning qisman bajarilishi — Muammo C; "chuqur tahlil"ning
+kattaroq stsenariyda sinovi) — tafsilot: [`05-bo'lim`](./05-xulosa-va-keyingi-qadamlar.md).
 
 Bu papka kod emas, **g'oyalarni yo'qotmaslik uchun yozilgan reja
 hujjatlari** — `zdes_frontend` loyihasidagi suhbat davomida Fayzillo bergan

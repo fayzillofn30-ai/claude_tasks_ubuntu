@@ -99,23 +99,26 @@ laganbardorlik ko'p jihatdan modelning o'zi (RLHF darajasida) o'rgatilgan
 xususiyat, prompt buni faqat bostiradi. To'liq Claude-darajasidagi muvozanatni
 kutish noto'g'ri kutish bo'lardi.
 
-**⚠️ Tuzatish (2026-08-08, Test 5 asosida) — bu blok headless (`agy -p`)
-chaqiruvlarda ISHLAMASLIGI MUMKIN.** Test 5 loyiha-darajasidagi `AGENT.md`
-qoida faylini sinadi (xuddi shu turdagi "avval tashxis qo'y" ko'rsatmasi
-bilan) — u bitta-martalik `-p` chaqiruvda e'tiborga olinmadi (6-band, "Ijro
-emas — avval tashxis" qoidasi buzildi). **Global `~/.gemini/GEMINI.md` hali
-alohida sinovdan o'tkazilmagan** — ehtimol global config boshqacha
-yuklanish yo'liga ega (masalan interaktiv sessiyada ishlashi mumkin), lekin
-bu hozircha tasdiqlanmagan taxmin. Shu sabab bu blokni yozishdan oldin
-alohida test o'tkazish tavsiya etiladi (qarang
-[4.8-band](./04-taxminlar-va-tekshirish.md#48-global-geminimd-headless-rejimda-ishlaydimi)).
-Ohang-qatlami (laganbardorlik) interaktiv sessiyalarda foydali bo'lishi
-mumkin, lekin `orcestor`ning headless `agy -p` chaqiruvlariga bu orqali
-tayanib bo'lmaydi.
+**✅ YANGILANDI (2026-08-09) — bu band amalda hal qilindi, lekin
+kutilgandan boshqacha yo'l bilan.** Global `GEMINI.md`ning headless
+rejimda ishlashi endi mexanizm darajasida tasdiqlangan (4.8-band, Test
+10/12). Bundan tashqari, ushbu 3.2-banddagi to'liq (6 punktli) blokning
+**qisqartirilgan (5 punktli) varianti allaqachon real
+`~/.gemini/GEMINI.md`da o'rnatilgan** ekan — `agy-align` skill
+o'rnatilishida ixtiyoriy 5-band ("Muvozanatli ohang") sifatida tanlangan
+(6-punkt, "Ijro emas — avval tashxis", alohida, asosiy 1-bandga
+birlashtirilgan holda allaqachon bor). Bu blok mustaqil kod-baholash
+sinovlarida (hech qanday ijtimoiy bosimsiz) sinaldi va ikkala holatda ham
+(nuqsonli va nisbatan toza kod) laganbardorlik o'rniga muvozanatli tanqid
+berdi — tafsilot: [`06-test-natijalari.md`, band J](./06-test-natijalari.md#j-muvozanatli-ohang-bloki-5-band-tajribaviy--kutilmagan-topilma-va-sinov-2026-08-09).
+**Qoldiq:** ikkita sinov hali kam — 4.7-banddagi "sonli o'lchash qiyin"
+ogohlantirishi kuchda qoladi, ko'proq real vaziyatda (bosim ostida,
+foydalanuvchi bilan haqiqiy suhbatda) qo'shimcha kuzatuv kerak.
 
 ## 3.3 Xarajat-nazorati — triage strategiyasi
 
-**❌ QISMAN RAD ETILDI (2026-08-08, real testlar bilan).**
+**❌ QISMAN RAD ETILDI (2026-08-08), so'ng ✅ QAYTA TUZATILDI (2026-08-09,
+global `GEMINI.md` topilmasi asosida).**
 
 Boshlang'ich taklif — bir-fayllik ishlarni to'g'ridan-to'g'ri AGY'ga
 (`/plan` prefiksi bilan, Orcestor zanjirisiz) yo'naltirish edi. Lekin
@@ -124,27 +127,35 @@ Boshlang'ich taklif — bir-fayllik ishlarni to'g'ridan-to'g'ri AGY'ga
 "tezkor yo'l" xavfsiz emas edi, chunki hech qanday haqiqiy to'siq
 bermaydi.
 
-**Tuzatilgan strategiya:** triage mezoni o'zgarmaydi (bir-fayllik vs
-ko'p-fayllik), lekin "tezkor yo'l" endi boshqacha ta'riflanadi — Orcestor
-zanjirisiz to'g'ridan-to'g'ri AGY'ga murojaat qilinganda ham, **promptning
-o'ziga** (Test 4'da tasdiqlangan yagona ishonchli usul) aniq "avval tashxis
-qo'y, tasdiqlanmaguncha fayl o'zgartirma" ko'rsatmasi qo'lda qo'shilishi
-SHART. Bu aslida Orcestor'ning qisqartirilgan, bir martalik versiyasi —
-to'liq task-fayl/tracking bosqichisiz, lekin xavfsizlik toifasi (matnli
-ko'rsatma) saqlangan holda:
+**2026-08-08dagi birinchi tuzatish** (endi eskirgan): triage mezoni
+o'zgarmaydi, lekin "tezkor yo'l"da promptning o'ziga qo'lda "avval tashxis
+qo'y" matni **har safar qo'shilishi shart** deb belgilangan edi (Test
+4'dagi yagona o'shanda ishonchli usul sifatida).
+
+**2026-08-09dagi ikkinchi, yakuniy tuzatish — qo'lda qo'shish shartligi
+ENDI YO'Q:** 4.8/Test 10-13 va 05-bo'limdagi 1- va 2-bandlar tasdiqlaganidek,
+"avval tashxis qo'y", "tushunganini qisqa ayt" va "tekshirilgan/
+tekshirilmagan da'volarni ajratish" qoidalari endi **doimiy ravishda**
+Foydalanuvchining real `~/.gemini/GEMINI.md`sida turibdi va **har bir**
+`agy -p` chaqiruvda (Orcestor orqali ham, to'g'ridan-to'g'ri ham,
+promptga hech narsa qo'shmasdan) avtomatik amal qiladi — sinovdan
+o'tkazilgan: [`06-test-natijalari.md`, band J](./06-test-natijalari.md#j-muvozanatli-ohang-bloki-5-band-tajribaviy--kutilmagan-topilma-va-sinov-2026-08-09).
+Demak triage jadvalidagi "promptda majburiy matn" ustuni endi **ortiqcha**
+— global fayl buni bepul, avtomatik qamrab oladi:
 
 | Ish turi | Yo'nalish |
 |---|---|
-| Bir-fayllik/oddiy (build error, lint, typo, import xatosi) | To'g'ridan-to'g'ri AGY, lekin promptda **majburiy** "avval tashxis, keyin tasdiq" matni bilan, Orcestor task-tracking'isiz |
-| Ko'p-fayllik/arxitektura darajasida | To'liq Orcestor zanjiri (Claude tashxis → task fayl → AGY ijro) |
+| Bir-fayllik/oddiy (build error, lint, typo, import xatosi) | To'g'ridan-to'g'ri AGY, **promptga hech narsa qo'shmasdan** — global `GEMINI.md` xavfsizlik qatlamini avtomatik ta'minlaydi, Orcestor task-tracking'isiz |
+| Ko'p-fayllik/arxitektura darajasida | To'liq Orcestor zanjiri (Claude tashxis → task fayl → AGY ijro) — bu holatda sabab endi "xavfsizlik to'sig'i" emas, balki **muvofiqlashtirish/rejalashtirish** (bir nechta faylni izchil tahrirlash Orcestor'ning o'z vazifasi, global fayl buni bermaydi) |
 
 `zdes_frontend/orcestor/standing_rules.json`ga taklif qilingan yangi qator
-(hali qo'shilmagan, tuzatilgan matn bilan):
+(2026-08-09da yangilangan matn — endi "promptga qo'shish" emas, "global
+faylga tayanish" tamoyiliga mos):
 
 ```json
 {
   "topic": "error-triage-cost-control",
-  "rule": "Bir-fayllik/oddiy build yoki lint xatolarida to'liq Orcestor task-tracking pipeline ishlatilmaydi, lekin xato logi Executer_Agent'ga HECH QACHON xom holda yuborilmaydi — promptga har doim aniq matnli qoida qo'shiladi: 'avval tashxis qo'y va yechim taklif qil, aniq tasdiqlanmaguncha fayl o'zgartirma'. CLI bayroqlari (--mode plan) yoki qoidalar fayllari (AGENT.md) bunga headless rejimda ishonchli almashtiruvchi EMAS (tasdiqlangan: 06-test-natijalari.md). Faqat ko'p-fayllik yoki arxitektura darajasidagi ishlar uchun to'liq Orcestor zanjiri ishlatiladi."
+  "rule": "Bir-fayllik/oddiy build yoki lint xatolarida to'liq Orcestor task-tracking pipeline ishlatilmaydi. Xavfsizlik to'sig'i (tashxissiz edit qilmaslik, tushunishni tasdiqlash, tekshirilmagan da'vo qilmaslik) endi promptga qo'lda qo'shilmaydi — bu qoidalar Executer_Agent (AGY)ning global ~/.gemini/GEMINI.md faylida doimiy o'rnatilgan va har bir agy -p chaqiruvda avtomatik amal qiladi (tasdiqlangan: agy_upgrading/06-test-natijalari.md, band H/I/J). Faqat ko'p-fayllik yoki arxitektura darajasidagi ishlar uchun to'liq Orcestor zanjiri ishlatiladi — bu holatda sabab muvofiqlashtirish, xavfsizlik emas."
 }
 ```
 

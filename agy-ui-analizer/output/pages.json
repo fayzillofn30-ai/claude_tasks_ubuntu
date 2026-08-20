@@ -1,0 +1,26 @@
+[
+  {
+    "url": "http://localhost:4300",
+    "slug": "index",
+    "screenshot": "index/screenshot.png",
+    "console_log": "index/console.log",
+    "console_lines": 3,
+    "gemini_response": "index/gemini_response.md"
+  },
+  {
+    "url": "http://localhost:4300/about",
+    "slug": "about",
+    "screenshot": "about/screenshot.png",
+    "console_log": "about/console.log",
+    "console_lines": 3,
+    "gemini_response": "about/gemini_response.md"
+  },
+  {
+    "url": "http://localhost:4300/contact",
+    "slug": "contact",
+    "screenshot": "contact/screenshot.png",
+    "console_log": "contact/console.log",
+    "console_lines": 3,
+    "gemini_response": "contact/gemini_response.md"
+  }
+]

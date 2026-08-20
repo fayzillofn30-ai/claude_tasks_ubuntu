@@ -77,6 +77,34 @@ interaktiv Antigravity oynasida shaxsan tekshirib ko'rishi mumkin —
 lekin binary'da kalit so'zning umuman yo'qligi buni deyarli ehtimoldan
 xoli qiladi.
 
+## Qo'shimcha tekshiruv (2026-08-09) — Claude Code'ning HAQIQIY kaliti bilan qayta tekshirildi
+
+Foydalanuvchi 5 ta yangi manba topdi (DeepakNess asl ro'yxati,
+`jaehongpark-agent/claude-code-spinner-verbs`, `atalovesyou/claude-spinner-simulator`,
+`wynandw87/claude-code-spinner-verbs`, Wes Bos'ning X posti). Eng foydalisi —
+`jaehongpark-agent` repo'sining `CUSTOMIZE.md` fayli — Claude Code'ning bu
+funksiyani **haqiqatda qaysi kalit orqali** boshqarishini ko'rsatadi:
+`~/.claude/settings.json`dagi **`spinnerVerbs`** (`mode: "replace"/"append"`
++ `verbs: [...]` array), 2-6-bandda tekshirilgan `ui.loadingPhrases`/
+`ui.customWittyPhrases` (gemini-cli'ga xos, boshqa kalit nomi) EMAS.
+
+**Bu haqiqiy kalit nomi bilan AGY binary'si qayta tekshirildi:**
+`strings agy | grep -i "spinnerVerb"` — **hech qanday natija yo'q**
+(so'z umuman yo'q). Oddiy "spinner"/"Spinner" so'zi bor, lekin bu AGY'ning
+o'z ichki animatsiya mexanizmiga oid umumiy so'z, konfiguratsiya kaliti
+emas.
+
+**Xulosa o'zgarmadi, lekin endi TO'LIQROQ asoslangan:** avvalgi tekshiruv
+noto'g'ri kalit nomi (`loadingPhrases`, gemini-cli'dan) bilan qilingan edi
+— endi Claude Code'ning **aynan o'zi ishlatadigan** haqiqiy kalit
+(`spinnerVerbs`) bilan ham tekshirilib, xuddi shu natija (yo'q) chiqdi. Bu
+2-band boshidagi arxitektura-farqi xulosasini (AGY vazifa-nomiga bog'liq
+funksional matn ishlatadi, Claude Code'dagi kabi tasodifiy whimsical-so'z
+hovuzi emas) yanada mustahkamlaydi. **Amaliy ta'sir yo'q** — bu kalitni
+`settings.json`ga qo'shish (avvalgi `loadingPhrases` urinishi kabi)
+xatosiz qabul qilinadi, lekin real effekt bermaydi, shuning uchun
+qo'shilmadi.
+
 ## Sozlama fayli holati
 
 Sinov qoidasi (`ui.loadingPhrases`/`customWittyPhrases`) hozircha
